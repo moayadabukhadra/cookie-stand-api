@@ -28,11 +28,14 @@ env = environ.Env(
     DATABASE_PASSWORD=(str, ""),
     DATABASE_HOST=(str, ""),
     DATABASE_PORT=(int, 5432),
+    CSRF_TRUSTED_ORIGINS = (list, [])
 )
 
 environ.Env.read_env()
 
 ENVIRONMENT = env.str("ENVIRONMENT")
+
+CSRF_TRUSTED_ORIGINS = tuple(env.list("CSRF_TRUSTED_ORIGINS"))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
